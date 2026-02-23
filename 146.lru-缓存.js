@@ -70,6 +70,7 @@
 
 // @lc code=start
 /**
+ * 时间复杂度：O(1)，空间复杂度：O(capacity)
  * @param {number} capacity
  */
 var LRUCache = function(capacity) {

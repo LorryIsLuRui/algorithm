@@ -63,6 +63,7 @@
  */
 /**
  * 核心思想：每次交换next, next.next，交换完成后temp指向下一位交换的前一个节点
+ * 时间复杂度O(n)，空间复杂度O(1)
  * @param {ListNode} head
  * @return {ListNode}
  */

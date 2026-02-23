@@ -69,7 +69,7 @@ function ListNode(val, next) {
 }
 /**
  * 核心思想1：递归
- *    时间复杂度：O(max(m, n))，其中 m 和 n 分别是两个链表的长度。我们需要遍历最长的链表一次。
+ *    时间复杂度：O(m+n)，其中 m 和 n 分别是两个链表的长度。递归需要处理所有 m+n 个节点。
  *    空间复杂度：O(max(m, n))，递归调用栈的空间取决于最长链表的长度。
  * @param {ListNode} l1
  * @param {ListNode} l2
@@ -77,7 +77,7 @@ function ListNode(val, next) {
  */
 var addTwoNumbers = function (l1, l2) {
     // 迭代法：每次相加相同索引的数值，连接链表，并记录进位
-    // 时间复杂度O(max(m, n))，空间复杂度O(1)
+    // 时间复杂度O(m+n)，空间复杂度O(1)
     let head = new ListNode(0), carry = 0;
     let prev = head;
     while (l1 || l2) {
@@ -96,6 +96,9 @@ var addTwoNumbers = function (l1, l2) {
     return head.next;
 
     // 递归
+    // 声明一个递归函数，参数为(node1, node2, carry = 0)
+    // 递归终止条件：当 node1、node2 和 carry 都为 0 时，返回 null，其他情况分别相加两个值和进位，创建一个新节点，next指向递归调用函数处理下一个节点
+    
     // const fn = (node1, node2, carry = 0) => {
     //     if (!node1 && !node2 && carry === 0) {
     //         return null;

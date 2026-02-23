@@ -80,6 +80,7 @@ var removeNthFromEnd = function (head, n) {
     let fast = dummy, slow = dummy;
 
     // fast 先走n+1步, 这样最终 快指针到尾部时候，慢指针正好在倒数第n个节点的前一个节点
+    // 时间复杂度O(n)，空间复杂度O(1)
     for (let i = 0; i < n + 1; i++) {
         fast = fast.next;
     }

@@ -59,12 +59,32 @@
  * }
  */
 /**
+ * 核心思想：一个哑结点，一个指针，按位比较两个链表，小的值接在指针后面，两个链表后移，当一个链表结束，把剩余的链表接在指针后面
+ * 时间复杂度O(m+n)，空间复杂度O(1)
  * @param {ListNode} list1
  * @param {ListNode} list2
  * @return {ListNode}
  */
 var mergeTwoLists = function(list1, list2) {
-    
+    const dummy = new ListNode(-1);
+    let temp = dummy;
+    // 虽然 while 循环只执行 min(m,n) 次，但：
+    //     list1 的每个节点：都进入 while 循环进行了一次比较 → 访问 m 次
+    //     list2 的每个节点：也都进入 while 循环进行了比较 → 访问 n 次
+    //     即使 list2 剩余的节点是直接连接的，
+    //     在前 min(m,n) 次迭代中，list2 的这些节点也被访问过了
+    while (list1 && list2) {
+        if (list1.val < list2.val) {
+            temp.next = list1;
+            list1 = list1.next;
+        } else {
+            temp.next = list2;
+            list2 = list2.next;
+        }
+        temp = temp.next;
+    }
+    temp.next = list1 || list2;
+    return dummy.next;
 };
 // @lc code=end
 

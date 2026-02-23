@@ -17,26 +17,12 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// 1 
-// var hasCycle = function(head) {
-//     if (!head || !head.next) {
-//         return false;
-//     }
-//     let node = head;
-//     while(node) {
-//         if (node.read === 1) {
-//             return true;
-//         } else {
-//             node.read = 1;
-//         }
-//         node = node.next;
-//     }
-//     return false;
-// };
+// 快慢指针为什么是快指针多走两步？
+    // 3步、4、5...也行，但是快指针走得太快，浪费
 var hasCycle = function(head) {
     let fast = head;
     let slow = head;
-    while(fast && fast.next) {
+    while(fast && fast.next) { // 确保能走两步
         fast = fast.next.next;
         slow = slow.next;
         if (fast === slow) {
