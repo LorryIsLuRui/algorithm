@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../algorithm"
+		},
+		{
+			"name": "string",
+			"path": "../../practice/algorithm/string"
+		}
+	],
+	"settings": {}
+}

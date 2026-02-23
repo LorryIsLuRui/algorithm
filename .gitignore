@@ -1,0 +1,23 @@
+# 依赖
+node_modules/
+.npm
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日志
+*.log
+npm-debug.log*
+
+# 编译输出
+dist/
+build/
+
+# 环境变量
+.env
+.env.local
