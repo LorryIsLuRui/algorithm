@@ -68,8 +68,10 @@ function TreeNode(val, left, right) {
     this.left = (left===undefined ? null : left)
     this.right = (right===undefined ? null : right)
 }
-// 递归
 /**
+ * 递归：对于每个节点，递归地翻转其左右子树，结果交叉赋值
+ * 时间复杂度: O(n)
+ * 空间复杂度: O(n)
  * @param {TreeNode} root
  * @return {TreeNode}
  */
@@ -81,8 +83,11 @@ var invertTree1 = function(root) {
     root.right = left;
     return root;
 };
-// 循环
+
 /**
+ * 迭代：使用队列进行层序遍历，当前节点的左右子树进队列，并交换当前节点的左右子树。
+ * 事件负责度: O(n)，其中 n 是二叉树中节点的数量。每个节点被访问一次。
+ * 空间复杂度: O(n)，最坏情况下，队列中可能存储所有节点（当树是完全二叉树时）。
  * @param {TreeNode} root
  * @return {TreeNode}
  */
