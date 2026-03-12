@@ -28,9 +28,12 @@
 // };
 
 // 迭代
+// 核心思想：把所有左子树都入栈，直到没有左子树了，此时弹出栈顶元素，访问它的右子树
+// 时间复杂度：O(n)
+// 空间复杂度：O(n)
 var inorderTraversal = function(root) {
     const res = [];
-    const stk = [];
+    const stk = []; // 栈,存储根节点的所有左子树，当左子树访问完后，弹出根节点，访问右子树
     while (root || stk.length) {
         while (root) {
             stk.push(root);

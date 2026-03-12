@@ -14,18 +14,20 @@
  * }
  */
 /**
+ * 核心思想：递归遍历节点的左右子树，计算高度，同时更新最大直径（当前直径：left+right）。递归函数返回的是以当前节点为根时的最大路径
  * @param {TreeNode} root
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-    var res = 0;
-    const deep = node => {
-        if (node === null) return 0;
-        const l = deep(node.left);
-        const r = deep(node.right);
-        res = Math.max(res, l + r);
-        return Math.max(l, r) + 1;
+   let res = -Infinity;
+    const dfs = node => {
+        if (!node) return 0;
+        const left = dfs(node.left);
+        const right = dfs(node.right);
+        res = Math.max(res, left + right);
+        return Math.max(left, right) + 1;
     }
+    dfs(root);
     return res;
 };
 // @lc code=end
