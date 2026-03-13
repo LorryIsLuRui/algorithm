@@ -73,7 +73,7 @@ var pathSum = function(root, targetSum) {
     const dfs = (node, currentSum) => {
         if (!node) return 0;
         currentSum += node.val;
-        const count = map.get(currentSum - targetSum) || 0;  // 查找出现的次数: currentSum - targetSum表示这个中间节点下满足路径和为targetSum，get(...)返回这个值出现的次数
+        const count = map.get(currentSum - targetSum) || 0;  // 查找出现的次数: currentSum - targetSum表示当前路径和下，满足targetSum的节点值，如果存在肯定在map里，get(...)返回这个值出现的次数
         map.set(currentSum, (map.get(currentSum) || 0) + 1);
 
         const leftCount = dfs(node.left, currentSum);
