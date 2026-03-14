@@ -56,6 +56,17 @@
 # @lc code=start
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        occ = {}
+        n = len(s)
+        max_len = 0
+        left = 0
+        for i in range(n):
+            char = s[i]
+            if char in occ:
+                left = max(occ[char] + 1, left)
+            occ[char] = i
+            max_len = max(max_len, i - left + 1)
+        return max_len
         
 # @lc code=end
 
