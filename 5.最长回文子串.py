@@ -76,9 +76,8 @@ class Solution:
                 else:
                     # 两端相同 内部区间也是回文
                     dp[i][j] = (s[i] == s[j] and dp[i + 1][j - 1])
-                cur_len = j - i + 1
-                if (dp[i][j]) and cur_len > max_len:
-                    max_len = cur_len
+                if (dp[i][j]) and length > max_len:
+                    max_len = length
                     start = i
         return s[start: start + max_len]
 
