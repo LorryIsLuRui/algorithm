@@ -87,15 +87,16 @@
 var compareVersion = function (version1, version2) {
     const len1 = version1.length;
     const len2 = version2.length;
-    let p1 = 0;
+    let p1 = 0; // 两个指针
     let p2 = 0;
     while (p1 < len1 || p2 < len2) {
-        let num1 = 0;
+        let num1 = 0; // 分别表示 version当前 . 之前的数字和
         let num2 = 0;
         while (p1 < len1 && version1[p1] != '.') {
             num1 = num1 * 10 + +version1[p1];
             p1 += 1
         }
+        // 如果<len,+1跳过 ‘.’
         p1 += p1 < len1;
 
         while (p2 < len2 && version2[p2] != '.') {
@@ -115,3 +116,7 @@ var compareVersion = function (version1, version2) {
 };
 // @lc code=end
 
+
+// @after-stub-for-debug-begin
+module.exports = compareVersion;
+// @after-stub-for-debug-end
