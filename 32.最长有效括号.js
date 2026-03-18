@@ -62,8 +62,30 @@
  * @param {string} s
  * @return {number}
  */
-var longestValidParentheses = function(s) {
-    
+var longestValidParentheses = function (s) {
+    if (!s?.length) return 0;
+    const stack = [-1];
+    let res = 0;
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+        if (c === '(') {
+            stack.push(i);
+        } else {
+            stack.pop();
+            if (!stack.length) {
+                stack.push(i)
+            } else {
+                res = Math.max(res, i - stack[stack.length - 1]);
+            }
+        }
+    }
+    // console.log(res)
+    return res;
 };
+// longestValidParentheses(")()())") // 4
+// longestValidParentheses("()(())") // 6
+// longestValidParentheses("())") //4
+// longestValidParentheses("(())") //4
+// longestValidParentheses("()(()") // 2
 // @lc code=end
 
