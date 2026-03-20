@@ -75,6 +75,8 @@ var subsets_cus = function(nums) {
 /**
  * 核心：使用回溯法
  * 时间复杂度o(n*2^n)
+ *      2ⁿ？？？：每个元素都有【选、不选】两种答案，所以2^n 个子集
+ *      乘一个 n？：res.append(path.copy()) 拷贝当前路径
  * 空间复杂度 o(n*2^n)
  * @param {number[]} nums
  * @return {number[][]}
