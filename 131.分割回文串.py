@@ -1,5 +1,4 @@
 # @before-stub-for-debug-begin
-from python3problem131 import *
 from typing import *
 # @before-stub-for-debug-end
 
