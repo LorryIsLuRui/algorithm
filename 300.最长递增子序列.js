@@ -153,13 +153,15 @@ var lengthOfLIS = function (nums) {
             tails[left] = num;
         }
     }
-    const len = tails.length;
-    console.log('len :>> ', len);
-    return len;
+    return tails.length;
 }
 // @lc code=end
-lengthOfLIS_dp([1,2,1,4]);
+// lengthOfLIS_dp([1,2,1,4]);
 // lengthOfLIS_dp([10, 9, 2, 5, 3, 7, 101, 18]);
 // lengthOfLIS([0,1,0,3,2,3]);
 // lengthOfLIS([7,7,7,7,7,7,7]);
 
+
+// @after-stub-for-debug-begin
+module.exports = lengthOfLIS;
+// @after-stub-for-debug-end
