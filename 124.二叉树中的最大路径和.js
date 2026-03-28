@@ -69,7 +69,7 @@ var maxPathSum = function (root) {
         const right = Math.max(0, dfs(node.right));
         // 单边最大和
         let curMax = node.val + Math.max(left, right);
-        // 上面已经做了负数处理，这里无脑加和
+        // 上面已经做了负数处理，这里无脑加和  “左路径 + 根 + 右路径”这个弯钩形状。
         max = Math.max(max, left + right + node.val);
         return curMax;
     };
