@@ -63,25 +63,55 @@
  * @param {number} target
  * @return {boolean}
  */
-// TODO: 二分法
+// 二分法 超时
+// const search = (nums, target) => {
+//     let left = 0;
+//     let right = nums.length - 1;
+//     while (left <= right) {
+//         let mid = Math.floor((right - left) / 2) + left;
+//         if (nums[mid] === target) {
+//             return mid;
+//         }
+//         if (nums[mid] > target) {
+//             right = mid - 1;
+//         }
+//         if (nums[mid] < target) {
+//             left = mid + 1;
+//         }
+//     }
+//     return -1;
+// };
+// var searchMatrix = function (matrix, target) {
+//     if (!matrix.length) return false;
+//     for (let i = 0; i < matrix.length; i++) {
+//         if (search(matrix[i], target) >= 0) {
+//             return true;
+//         }
+//     }
+//     return false;
+// };
+
 // Z字型查找
-var searchMatrix = function(matrix, target) {
+var searchMatrix = function (matrix, target) {
     if (!matrix.length) return false;
     const row = matrix.length;
     const column = matrix[0].length;
-    let x = 0; // first row
+    let x = 0;
     let y = column - 1;
     while (x < row && y >= 0) {
-        if(matrix[x][y] === target) {
+        if (matrix[x][y] === target) {
             return true;
         }
         if (matrix[x][y] > target) {
             y--;
         } else {
-            x++
+            x++;
         }
     }
     return false;
 };
 // @lc code=end
 
+// @after-stub-for-debug-begin
+module.exports = searchMatrix;
+// @after-stub-for-debug-end
